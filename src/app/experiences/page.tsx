@@ -1,0 +1,27 @@
+import type { Metadata } from "next";
+import { ExperienceGrid } from "@/components/ExperienceGrid";
+import { JourneyCTA } from "@/components/JourneyCTA";
+import { Marquee } from "@/components/Marquee";
+import { PageHero } from "@/components/PageHero";
+
+export const metadata: Metadata = {
+  title: "Experiences",
+  description:
+    "From dawn game drives to candlelit dinners beneath the stars — every experience is shaped around meeting Africa on its own terms.",
+};
+
+export default function ExperiencesPage() {
+  return (
+    <>
+      <PageHero
+        eyebrow="Experiences"
+        title="Extraordinary, By Design."
+        description="Guided safaris, private dining, honeymoon escapes and more — each one built around a single idea: unhurried, authentic encounters with the wild."
+        image="lionRoaring"
+      />
+      <Marquee />
+      <ExperienceGrid showHeading={false} />
+      <JourneyCTA />
+    </>
+  );
+}
