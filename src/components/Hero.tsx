@@ -5,6 +5,7 @@ import { useRef } from "react";
 import Link from "next/link";
 import { videos } from "@/lib/images";
 import { siteConfig } from "@/lib/content";
+import { DustParticles } from "./DustParticles";
 
 const words = siteConfig.tagline.replace(".", "").split(" ");
 
@@ -57,6 +58,7 @@ function WildernessEntrance() {
 
         <motion.div style={{ opacity: veilOpacity }} className="absolute inset-0 bg-forest" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/55 via-transparent to-black/25" />
+        <DustParticles count={22} />
 
         <motion.div
           style={{ opacity: beat1Opacity, y: beat1Y }}

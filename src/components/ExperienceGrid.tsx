@@ -1,9 +1,16 @@
-import Image from "next/image";
 import Link from "next/link";
 import { experiences } from "@/lib/content";
-import { images } from "@/lib/images";
+import { images, type VideoKey } from "@/lib/images";
+import { HoverMedia } from "./HoverMedia";
 import { Reveal } from "./Reveal";
 import { SectionHeading } from "./SectionHeading";
+
+const experienceVideos: Record<string, VideoKey> = {
+  "guided-safari": "lionWalking",
+  "walking-safari": "elephantAerial",
+  "photography-safaris": "giraffeGrazing",
+  "family-adventures": "zebraRunning",
+};
 
 const spanClasses = [
   "lg:col-span-4 lg:row-span-2",
@@ -39,12 +46,12 @@ export function ExperienceGrid({ showHeading = true }: { showHeading?: boolean }
                   href={`/experiences/${experience.slug}`}
                   className="group relative block aspect-[4/5] w-full overflow-hidden lg:h-full lg:aspect-auto"
                 >
-                  <Image
+                  <HoverMedia
                     src={img.src}
                     alt={img.alt}
-                    fill
+                    video={experienceVideos[experience.slug]}
                     sizes="(min-width: 1024px) 30vw, 100vw"
-                    className="object-cover transition-transform duration-700 group-hover:scale-105"
+                    imageClassName="object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-forest/80 via-forest/5 to-transparent" />
                   <div className="absolute inset-x-0 bottom-0 p-6">

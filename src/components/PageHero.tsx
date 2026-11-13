@@ -4,6 +4,7 @@ import { motion, useReducedMotion, useScroll, useTransform } from "motion/react"
 import Link from "next/link";
 import { useRef } from "react";
 import { images, videos, type ImageKey, type VideoKey } from "@/lib/images";
+import { DustParticles } from "./DustParticles";
 
 type PageHeroProps = {
   eyebrow: string;
@@ -118,6 +119,7 @@ function ScrollDrivenPageHero({
 
         <motion.div style={{ opacity: veilOpacity }} className="absolute inset-0 bg-forest" />
         <div className="absolute inset-0 bg-gradient-to-t from-black/50 via-transparent to-black/25" />
+        <DustParticles />
 
         <motion.div
           style={{ opacity: combinedOpacity, y: finalY }}
@@ -195,6 +197,7 @@ function StaticPageHero({
       />
       <div className="absolute inset-0 bg-gradient-to-b from-forest/55 via-forest/20 to-forest/80" />
       <div className="absolute inset-0 bg-gradient-to-t from-black/45 via-transparent to-transparent" />
+      <DustParticles count={14} />
 
       <div className="relative z-10 flex h-full flex-col items-center justify-center px-6 text-center">
         {breadcrumb && (

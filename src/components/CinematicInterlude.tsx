@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from "motion/react";
 import { videos, type VideoKey } from "@/lib/images";
+import { DustParticles } from "./DustParticles";
 import { Reveal } from "./Reveal";
 
 type CinematicInterludeProps = {
@@ -40,6 +41,7 @@ export function CinematicInterlude({
         </video>
       )}
       <div className="absolute inset-0 bg-forest/55" />
+      <DustParticles count={14} />
 
       <div className="relative z-10 px-6 text-center">
         <Reveal>
