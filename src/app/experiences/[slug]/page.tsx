@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { notFound } from "next/navigation";
 import Link from "next/link";
 import { experiences } from "@/lib/content";
+import type { VideoKey } from "@/lib/images";
 import { JourneyCTA } from "@/components/JourneyCTA";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -26,13 +27,21 @@ export default async function ExperiencePage({ params }: PageProps<"/experiences
 
   const others = experiences.filter((e) => e.slug !== slug).slice(0, 3);
 
+  const heroVideo: VideoKey | undefined = {
+    "guided-safari": "lionWalking",
+    "walking-safari": "elephantAerial",
+    "photography-safaris": "giraffeGrazing",
+    "family-adventures": "zebraRunning",
+  }[experience.slug] as VideoKey | undefined;
+
   return (
     <>
       <PageHero
         eyebrow="Experience"
         title={experience.name}
         description={experience.description}
-        image={experience.image}
+        image={heroVideo ? undefined : experience.image}
+        video={heroVideo}
         breadcrumb={{ label: "All Experiences", href: "/experiences" }}
       />
 

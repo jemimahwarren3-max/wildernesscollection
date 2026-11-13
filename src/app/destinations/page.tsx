@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CinematicInterlude } from "@/components/CinematicInterlude";
 import { DestinationCollection } from "@/components/DestinationCollection";
 import { JourneyCTA } from "@/components/JourneyCTA";
 import { Marquee } from "@/components/Marquee";
@@ -22,6 +23,12 @@ export default function DestinationsPage() {
       />
       <Marquee />
       <DestinationCollection showHeading={false} />
+      <CinematicInterlude
+        video="zebraRunning"
+        eyebrow="Life in Motion"
+        title="Across these plains,"
+        emphasis="the herds still move freely."
+      />
       <JourneyCTA />
     </>
   );

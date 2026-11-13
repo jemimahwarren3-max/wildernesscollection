@@ -3,7 +3,8 @@ import { notFound } from "next/navigation";
 import Image from "next/image";
 import Link from "next/link";
 import { destinations, lodges } from "@/lib/content";
-import { images } from "@/lib/images";
+import { images, type VideoKey } from "@/lib/images";
+import { CinematicInterlude } from "@/components/CinematicInterlude";
 import { JourneyCTA } from "@/components/JourneyCTA";
 import { PageHero } from "@/components/PageHero";
 import { Reveal } from "@/components/Reveal";
@@ -33,13 +34,53 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
   const destinationLodges = lodges.filter((l) => l.destination === destination.name);
   const heroImage = images[destination.image];
 
+  const heroVideo: VideoKey | undefined = {
+    zimbabwe: "victoriaFalls",
+    botswana: "zebraRunning",
+  }[destination.slug] as VideoKey | undefined;
+
+  const wildlifeInterludes: Record<string, { video: VideoKey; title: string; emphasis: string }> = {
+    zimbabwe: {
+      video: "lionWalking",
+      title: "Walk where the",
+      emphasis: "lions still walk.",
+    },
+    botswana: {
+      video: "giraffeGrazing",
+      title: "The delta moves",
+      emphasis: "at its own, unhurried pace.",
+    },
+    "south-africa": {
+      video: "lionWalking",
+      title: "Close enough to feel",
+      emphasis: "the ground shake.",
+    },
+    zambia: {
+      video: "elephantAerial",
+      title: "Giants move",
+      emphasis: "through country this wild.",
+    },
+    tanzania: {
+      video: "zebraRunning",
+      title: "The great migration,",
+      emphasis: "still endless.",
+    },
+  };
+
+  const wildlifeInterlude = wildlifeInterludes[destination.slug] ?? {
+    video: "elephantAerial" as VideoKey,
+    title: "This is wilderness,",
+    emphasis: "uninterrupted.",
+  };
+
   return (
     <>
       <PageHero
         eyebrow={destination.tagline}
         title={destination.name}
         description={destination.description}
-        image={destination.image}
+        image={heroVideo ? undefined : destination.image}
+        video={heroVideo}
         breadcrumb={{ label: "All Destinations", href: "/destinations" }}
       />
 
@@ -73,6 +114,13 @@ export default async function DestinationPage({ params }: PageProps<"/destinatio
           </Reveal>
         </div>
       </section>
+
+      <CinematicInterlude
+        video={wildlifeInterlude.video}
+        eyebrow="On the Ground"
+        title={wildlifeInterlude.title}
+        emphasis={wildlifeInterlude.emphasis}
+      />
 
       {destinationLodges.length > 0 && (
         <section className="bg-forest px-6 py-28 md:px-10 md:py-36">

@@ -17,7 +17,7 @@ export default function AboutPage() {
         eyebrow="Our Story"
         title="A Different Kind of Extraordinary."
         description="The Wilderness Collection was built on a simple belief: that the best luxury is unhurried, deeply considered, and shaped by the land it stands on."
-        video="savannahAerial"
+        video="zebraRunning"
       />
 
       <section className="bg-ivory px-6 py-28 md:px-10 md:py-36">

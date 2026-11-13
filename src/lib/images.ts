@@ -27,6 +27,8 @@ export const images = {
   lodgeAerial: { src: pexels(35831683), alt: "Aerial view of an eco lodge surrounded by lush greenery" },
   bedroomCozy: { src: pexels(35772450), alt: "Cozy lodge bedroom with natural tones and textures" },
   bedroomSuite: { src: pexels(17831034), alt: "Beds in a tented suite bedroom" },
+  zebraHerd: { src: pexels(5527460), alt: "Zebra herd running across the Serengeti" },
+  zebraStride: { src: pexels(787695), alt: "A zebra in full stride through the grass" },
 } as const;
 
 export type ImageKey = keyof typeof images;
@@ -44,6 +46,22 @@ export const videos = {
   savannahAerial: {
     src: "https://videos.pexels.com/video-files/33660361/14301787_2560_1440_24fps.mp4",
     poster: images.acaciaTree.src,
+  },
+  zebraRunning: {
+    src: "https://videos.pexels.com/video-files/6168935/6168935-uhd_2560_1440_30fps.mp4",
+    poster: images.zebraHerd.src,
+  },
+  victoriaFalls: {
+    src: "https://videos.pexels.com/video-files/40467354/17293771_1920_1080_30fps.mp4",
+    poster: images.victoriaFallsRainbow.src,
+  },
+  lionWalking: {
+    src: "https://videos.pexels.com/video-files/853900/853900-hd_1920_1080_25fps.mp4",
+    poster: images.lionRoaring.src,
+  },
+  giraffeGrazing: {
+    src: "https://videos.pexels.com/video-files/19806861/19806861-uhd_2560_1440_60fps.mp4",
+    poster: images.elephantHerd.src,
   },
 } as const;
 

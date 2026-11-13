@@ -1,4 +1,5 @@
 import type { Metadata } from "next";
+import { CinematicInterlude } from "@/components/CinematicInterlude";
 import { JourneyCTA } from "@/components/JourneyCTA";
 import { LodgeShowcase } from "@/components/LodgeShowcase";
 import { Marquee } from "@/components/Marquee";
@@ -17,10 +18,11 @@ export default function LodgesPage() {
         eyebrow="Our Lodges"
         title="Intimate Places, Distinct Personalities."
         description="Every lodge in the collection is limited in scale and singular in character — built to feel like a discovery, not a destination."
-        video="elephantAerial"
+        video="giraffeGrazing"
       />
       <Marquee />
       <LodgeShowcase showHeading={false} />
+      <CinematicInterlude video="elephantAerial" />
       <JourneyCTA />
     </>
   );
